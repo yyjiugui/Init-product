@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1像素边框解决方案</title>
+    <style>
+      html {
+        font-size: 15.625vw;
+      }
+      div {
+        height: 1rem;
+      }
+
+      .border-top {
+        border-top: 1px solid black;
+      }
+
+      .border-bottom {
+        border-bottom: 1px solid black;
+      }
+      /* 2倍屏幕下属性值为2 */
+      @media (-webkit-min-device-pixel-ratio: 2) {
+        .border-bottom {
+          position: relative;
+          border-bottom: 0;
+        }
+        .border-bottom::before {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          height: 1px;
+          content: '';
+          transform: scaleY(0.5);
+          background-color: black;
+        }
+      }
+
+      .mt100 {
+        margin-top: 100px;
+      }
+      .border-top1 {
+        border-top: 0.01rem solid black;
+      }
+
+      .border-bottom2 {
+        border-bottom: 0.01rem solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="border-top border-bottom"></div>
+    <!-- 一像素边框的问题还是分辨率的问题和图片模糊一个道理 -->
+
+    <div class="mt100 border-top1 border-bottom2"></div>
+    <!-- 
+			在移动端页面布局的使用我们可以使用rem做单位,
+			理论上采用rem做单位可以达到任何元素大小的自适应
+			但是遇到这种1像素边框问题: 通过rem来设置也不是很理想 -->
+  </body>
+</html>

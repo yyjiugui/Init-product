@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>采用视口单位vw + rem</title>
+    <style>
+      html {
+        font-size: 15.625vw;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrap {
+        /* 320 / 100 */
+        width: 3.2rem;
+        height: 3.2rem;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 设计稿640px rem基准值为100px
+		因为考虑到webkit内核会把字号大小限制到12px 所以把rem的值设置大一下,保证字体大小在12px以上
+
+		(1) 1rem = 100px ---  640 / 100 = 6.4rem
+		(2) 100vw = 6.4rem --- 1rem = 15.625vw
+		
+		总结: 给设计师约定好制作稿,建议为640px, 如果设计稿为750那么算出来的rem除不尽,造成偏差，无法还原设计稿。
+		-->
+    <div class="wrap"></div>
+  </body>
+</html>

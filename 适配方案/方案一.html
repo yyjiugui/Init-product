@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>采用媒体查询的方式 + rem</title>
+    <style>
+      /* iPhone5/SE */
+      @media screen and (min-width: 320px) {
+        html {
+          font-size: 16px;
+        }
+      }
+
+      /* Galaxy S5 */
+      @media screen and (min-width: 360px) {
+        html {
+          font-size: 18px;
+        }
+      }
+
+      /* (iPhone 6/7/8) */
+      @media screen and (min-width: 375px) {
+        html {
+          font-size: 18.75px;
+        }
+      }
+
+      /* Pixel2 Pixel XL iPhone6/7/8 Plus */
+      @media screen and (min-width: 414px) {
+        html {
+          font-size: 20.75px;
+        }
+      }
+
+      /* iPad */
+      @media screen and (min-width: 768px) {
+        html {
+          font-size: 38.4px;
+        }
+      }
+
+      /* iPad Pro */
+      @media screen and (min-width: 1024px) {
+        html {
+          font-size: 51.2px;
+        }
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrap {
+        /* 320 / 32 */
+        width: 10rem;
+        height: 10rem;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+			  rem是相对于根元素<html>，这样就意味着，我们只需要在根元素确定一个参考值，这个参考值设置为多少，完全可以根据自己来定(建议100px 容易计算)。
+				使用1rem=100px转换你的设计稿的像素，对于视觉稿上的元素尺寸换算，只需要原始的px值除以rem基准值即可。
+				设计稿还原: 一个元素占据ui稿件的宽度一半。那么放到手机上页面也应该是占据一半。
+
+				假设设计稿: 640px
+				假设制作稿: 375px (iPhone 6/7/8)
+
+				解决思路: 假设设计稿是640px,等比例分为20份,每份就是 640 / 20 = 32px
+				(1) 如果设计稿上一个元素为 320px,那么元素占设计稿的10份
+				(2) 同样的移动设备也等比例的分为20份,每份为 18.75px
+				(3) 按照这个思路把其他的设备同样的算出rem的基准值
+			-->
+
+    <!-- 测试代码 假设设计稿的一个元素为320px, 占一半宽度 -->
+
+    <div class="wrap"></div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>采用js + rem</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .wrap {
+        /* 320 / 100 */
+        width: 3.2rem;
+        height: 3.2rem;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap"></div>
+    <script>
+      /*
+       因为css3的rem单位参照的是html根节点的大小,所以可以动态获取屏幕尺寸计算出font-size的大小，通过一个比例公式
+       假设 1rem = 100px
+
+      designWidth:设计稿的实际宽度值，ui稿件的大小。
+      */
+      // 100 / 750 = rem / device-width
+      function refreshRem(designWidth = 640) {
+        const doc = document
+        const html = doc.getElementsByTagName('html')[0]
+        const maxWidth = doc.documentElement.clientWidth
+        const rem = (100 / designWidth) * maxWidth
+        html.style.fontSize = rem + 'px'
+        console.log(rem)
+      }
+      refreshRem()
+
+      window.onresize = function() {
+        refreshRem()
+      }
+    </script>
+  </body>
+</html>
