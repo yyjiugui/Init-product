@@ -6,7 +6,10 @@
       name="viewport"
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
-    <title>采用js + rem</title>
+    <title>
+      采用js + rem
+      （方案一二三思路一样，都是想办法随着屏幕改变，设置不同的font-size）
+    </title>
     <style>
       * {
         margin: 0;
@@ -25,12 +28,10 @@
     <div class="wrap"></div>
     <script>
       /*
-       因为css3的rem单位参照的是html根节点的大小,所以可以动态获取屏幕尺寸计算出font-size的大小，通过一个比例公式
-       假设 1rem = 100px
-
+       因为css3的rem单位参照的是html根节点的大小,所以可以动态获取屏幕尺寸计算出font-size的大小。
       designWidth:设计稿的实际宽度值，ui稿件的大小。
       */
-      // 100 / 750 = rem / device-width
+
       function refreshRem(designWidth = 640) {
         const doc = document
         const html = doc.getElementsByTagName('html')[0]
@@ -41,7 +42,7 @@
       }
       refreshRem()
 
-      window.onresize = function() {
+      window.onresize = function () {
         refreshRem()
       }
     </script>

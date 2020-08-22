@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>采用视口单位vw + rem</title>
+    <title>
+      采用视口单位vw + rem
+      （方案一二三思路一样，都是想办法随着屏幕改变，设置不同的font-size）
+    </title>
     <style>
       html {
         font-size: 15.625vw;
@@ -22,13 +25,22 @@
     </style>
   </head>
   <body>
-    <!-- 设计稿640px rem基准值为100px
-		因为考虑到webkit内核会把字号大小限制到12px 所以把rem的值设置大一下,保证字体大小在12px以上
-
+    <!-- 
+		方案:
+		建议设计稿640px
+		需要注意的点: webkit内核会把字号大小限制到12px。
 		(1) 1rem = 100px ---  640 / 100 = 6.4rem
 		(2) 100vw = 6.4rem --- 1rem = 15.625vw
-		
 		总结: 给设计师约定好制作稿,建议为640px, 如果设计稿为750那么算出来的rem除不尽,造成偏差，无法还原设计稿。
+
+		思路:
+		我们不考虑设计师给的是几倍图，目的就是把设计师给的UI图片，等比例方大或者缩小还原到手机上。方案一和方案二划分UI稿件也是这样的。
+		所以 
+		对于设备层面: 设备大小=100vw 
+		对于设计稿层面: 设计稿 规定1rem=100px
+		即: 得出等式 100vw = 6.4rem(640稿件/100)
+		即: 1rem = 15.625vw
+		设计稿量取的大小/100就行了 单位是rem
 		-->
     <div class="wrap"></div>
   </body>
