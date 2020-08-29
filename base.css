@@ -1,0 +1,85 @@
+/* 该文件用于初始化样式以及添加normalize.cssz中没有的浏览器重置样式 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 与版心宽度设置一致 用于小分辨率屏幕 放置body里内容超出html */
+html {
+  min-width: 1200px;
+  /* overflow: auto;  不用这句代码 浏览器会自动添加滚动条 如何是其他html标签要添加用于在该元素内滚动*/
+}
+
+body,
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+form,
+fieldset,
+legend,
+input,
+textarea,
+button,
+p,
+blockquote,
+th,
+td,
+pre,
+xmp {
+  margin: 0;
+  padding: 0;
+}
+
+address,
+cite,
+dfn,
+em,
+i,
+optgroup,
+var {
+  font-style: normal;
+}
+
+ul,
+ol,
+menu {
+  list-style: none;
+}
+fieldset,
+
+/*图片没有边框 & 去除图片底侧的空白缝隙*/
+img {
+  border: 0; /*ie6*/
+  vertical-align: middle;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  outline: 0 none;
+  border: none;
+}
+
+a,
+ins,
+s,
+u,
+del {
+  text-decoration: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
